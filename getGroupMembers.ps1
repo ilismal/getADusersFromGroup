@@ -49,7 +49,7 @@ foreach ($member in $members)
 	}
 	else
 	{
-		Get-ADUser -I $member | Format-Table -HideTableHeaders UserPrincipalName, Surname, GivenName | Out-File -encoding ascii -Append $file_name
+		Get-ADUser -I $member | Format-Table -HideTableHeaders SamAccountName, Surname, GivenName | Out-File -encoding ascii -Append $file_name
 	}
 }
 #Remove temporary files
