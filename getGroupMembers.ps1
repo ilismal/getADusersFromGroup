@@ -27,7 +27,10 @@ $members = Get-Content $temporaryFile
 #Remove previous files just in the first iteration
 if ($isNested -ne "yes")
 {
-	Remove-Item $file_name
+	if (Test-Path $file_name)
+	{
+		Remove-Item $file_name
+	}
 }
 foreach ($member in $members)
 {
