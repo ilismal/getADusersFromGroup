@@ -1,4 +1,4 @@
-Param ([string]$file=$(throw "-group is required"))
+Param ([string]$file=$(throw "-file is required"))
 Import-Module ActiveDirectory
 
 $groups = Get-Content $file
