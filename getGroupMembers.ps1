@@ -2,7 +2,7 @@ Param ([string]$group = $(throw "-group is required"), $isNested, $nestedFrom)
 Import-Module ActiveDirectory
 
 #We'll export the output to a text file named after the target group
-if $isNested -eq "yes"
+if ($isNested -eq "yes")
 {
 	$file_name = $(".\" + $nestedFrom + "_members.txt")
 }
@@ -21,7 +21,7 @@ foreach ($member in $members)
 	if($member.StartsWith("IR_"))
 	{
 		#
-		if $isNested -eq "yes"
+		if ($isNested -eq "yes")
 		{
 			.\getGroupMembers.ps1 -group $member -isNested yes -nestedFrom $nestedFrom
 		}
